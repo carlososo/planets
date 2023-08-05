@@ -1,0 +1,56 @@
+@use 'styles/colors';
+@import 'styles/fonts';
+@import 'styles/media-queries';
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 62.5%;
+}
+body{  
+  background-color: colors.$dark-blue-color;
+  background-image: url('/images/background-stars.svg');
+  background-position: center;
+  background-size: cover;
+  background-origin: content-box;
+  font-family: 'League Spartan', sans-serif;
+  color: colors.$white-color;
+  line-height: 25px;
+  font-size: 12px;
+  @include laptop{
+    font-size: 14px;
+  }
+  h1,h2{
+    font-family: 'Antonio', sans-serif;
+  }
+  h3,h4{
+    font-family: 'League Spartan', sans-serif;
+  }
+  h1{
+    font-size: 8rem;
+    line-height: 103px;
+    font-weight: 400;
+  }
+  h2{
+    font-size: 4rem;
+    line-height: 52px;
+    font-weight: 400;
+    word-spacing: -1.5px;
+  }
+  h3{
+    // buttons and links
+    font-size: 1.2rem;
+    line-height: 25px;
+    font-weight: 700;
+    letter-spacing: +2.6px;
+  }
+  h4{
+    // small buttons and links
+    font-size: 1.1rem;
+    line-height: 25px;
+    font-weight: 700;
+    letter-spacing: +1px;
+  }
+}
