@@ -1,4 +1,4 @@
-$dark-blue-color:#070724;
+$dark-blue-color: #070724;
 $dark-gray-color: #38384F;
 $light-gray-color: #838391;
 $cyan-color: #419EBB;
@@ -19,5 +19,13 @@ $saturn-color: #FCCB6B;
 $uranus-color: #65F0D5;
 $neptune-color: #497EFA;
 
-$planets: ('mercury': $mercury-color, 'venus': $venus-color, 'earth': $earth-color, 'mars': $mars-color, 
-'jupiter': $jupiter-color, 'saturn': $saturn-color, 'uranus': $uranus-color, 'neptune': $neptune-color);
+$planets: (
+  'mercury': $cyan-color,
+  'venus': $venus-color,
+  'earth': $earth-color,
+  'mars': $mars-color,
+  'jupiter': $jupiter-color,
+  'saturn': $saturn-color,
+  'uranus': $uranus-color,
+  'neptune': $neptune-color
+);

@@ -27,43 +27,62 @@ const averageTemp = computed(() => {
 <template>
   <section class="data-container">
     <div v-for="(section, index) in sections" class="data-section">
-      <span>{{section}} </span>
+      <span>{{ section }} </span>
       <h2 class="smaller-h2">
-        {{  index  === 0 ? rotationTime : index === 1 ? revolutionTime : index === 2 ? radius : averageTemp }}
+        {{ index === 0 ? rotationTime : index === 1 ? revolutionTime : index === 2 ? radius : averageTemp }}
       </h2>
-      
+
     </div>
   </section>
 </template>
 
 
 <style lang="scss" scoped>
-  .data-container{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 90%;
-    margin: 3rem auto;
-    .data-section{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 13px;
-      
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      color: rgba(255, 255, 255, 0.5);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 0 1rem;
-      
-      .smaller-h2{
-        opacity: 2;
-        color: white;
-        font-size: 24px;
-        font-weight: 400;
-        letter-spacing: 0;
-      }
-    }
+@use '../styles/media-queries.scss' as media;
+
+.data-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 90%;
+  margin: 3rem auto;
+
+  @include media.tablet {
+    flex-direction: row;
+    width: 100%;
+    margin: 4rem auto;
   }
 
+  .data-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0 1rem;
+
+    @include media.tablet {
+      flex-direction: column;
+      flex-grow: 1;
+      align-items: flex-start;
+      height: 11rem;
+      justify-content: center;
+    }
+
+    @include media.laptop {
+      margin: 1px;
+    }
+
+    .smaller-h2 {
+      opacity: 2;
+      color: white;
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+  }
+}
 </style>

@@ -4,164 +4,202 @@
 @use './media-queries.scss' as media;
 
 
-  .blue-background {
-    background-color: colors.$dark-blue-color;
+.blue-background {
+  background-color: colors.$dark-blue-color;
+}
+
+.white-color {
+  color: colors.$white-color;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include mixins.border-bottom-default;
+  flex-wrap: wrap;
+  height: 100%;
+
+  @include media.tablet {
+    height: 120px;
+    padding: 1rem;
   }
-  .white-color {
-    color: colors.$white-color;
+
+  @include media.laptop {
+    padding: 0 3rem;
+    height: 70px;
   }
-  .nav-bar {
+
+  h2 {
+    margin-left: 20px;
+    align-self: flex-start;
+    flex-grow: 1;
+
+    @include media.tablet {
+      text-align: center;
+      flex-basis: 100%;
+      margin-left: 0;
+    }
+
+    @include media.laptop {
+      flex-basis: 0;
+      text-align: start;
+      align-self: center;
+    }
+
+  }
+
+  .navbar-toggle {
+    margin-right: 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    
-    @include mixins.border-bottom-default;
-    flex-wrap: wrap;
+    cursor: pointer;
     height: 100%;
-    @include media.tablet{
-      height: 120px;
-      padding: 1rem;
+    transition: all 0.4s ease-out;
+
+    .fa-bars {
+      font-size: 24px;
     }
-    @include media.laptop{
-      padding: 0 3rem;
-      height: 70px;
+
+    @include media.tablet {
+      display: none;
     }
-    h2{
-        margin-left: 20px;
-        align-self: flex-start;
-        flex-grow: 1;
-        @include media.tablet{
-          text-align: center;
-          flex-basis: 100%;
-          margin-left: 0;
-        }
-        @include media.laptop{
-          flex-basis: 0;
-          text-align: start;
-          align-self: center;
-        }
-        
-      }
-    .navbar-toggle {
-      margin-right: 20px;
+  }
+
+  .opaque {
+    transition: all 0.3s ease-out;
+    opacity: 0.3;
+  }
+
+  .nav-bar__right-side-elements {
+    border-top: 1px solid rgb(255, 255, 255, 0.2);
+    background-color: colors.$dark-blue-color;
+    width: 100%;
+    z-index: 1;
+    padding: 20px;
+    margin: 0 auto;
+    position: absolute;
+    top: 52px;
+    height: calc(100vh - 53px);
+
+    @include media.tablet {
       display: flex;
+      justify-content: center;
       align-items: center;
-      cursor: pointer;
+      border-top: none;
+      padding-top: 0;
+      width: auto;
+      flex-grow: 1;
+      padding: 0;
+      position: relative;
+      top: 0;
+      height: auto;
+    }
+
+    @include media.laptop {
+      width: auto;
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 0;
       height: 100%;
-      transition: all 0.4s ease-out;
-      .fa-bars{
-        font-size: 24px;
-      }
-      @include media.tablet{
-        display: none;
-      }
     }
-    .opaque {
-      transition: all 0.3s ease-out;
-      opacity: 0.3;
-    }
-    .nav-bar__right-side-elements {
-      border-top: 1px solid rgb(255, 255, 255, 0.2);
-      background-color: colors.$dark-blue-color;
-      width: 100%;
-      z-index: 1;
-      padding: 20px;
-      margin: 0 auto;
+
+    ul {
+      display: flex;
+      list-style: none;
+      flex-direction: column;
+      flex-grow: 1;
+
       @include media.tablet {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-top: none;
-        padding-top: 0;
-        width: auto;
-        flex-grow: 1;
-        padding: 0;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
       }
+
       @include media.laptop {
-        width: auto;
-        flex-grow: 1;
-        display: flex;
-        justify-content: flex-end;
-        padding-top: 0;
         height: 100%;
       }
-      ul {
+
+      .list-item {
+        cursor: pointer;
+        height: 10rem;
+        font-size: 24px;
+        margin-left: 20px;
         display: flex;
-        list-style: none;
-        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
         flex-grow: 1;
-        @include media.tablet{
-          flex-direction: row;
-          justify-content: space-between;
-          flex-wrap: wrap;
+        @include mixins.border-bottom-default;
+
+        @include media.tablet {
+          height: 4rem;
+          margin-left: 0;
+          justify-content: center;
+          border: none;
+          font-size: 14px;
         }
-        @include media.laptop{
+
+        @include media.laptop {
           height: 100%;
+          cursor: inherit;
         }
-        .list-item {
-          cursor: pointer;
-          height: 10rem;
-          font-size: 24px;
-          margin-left: 20px;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .list-item-left {
           display: flex;
-          align-items: center;
-          justify-content: space-between;
-          display: flex;
-          flex-grow: 1;
-          @include mixins.border-bottom-default;
-          @include media.tablet{
-            height: 4rem;
-            margin-left: 0;
-            justify-content: center;
-            border: none;
-            font-size: 14px;
-          }
-          @include media.laptop{
-            height: 100%;
-            cursor: inherit;
-          }
-          &:last-child {
-            border-bottom: none;
-          }
-          .list-item-left{
-            display: flex;
-            .circle{
-              width: 20px;
-              height: 20px;
-              border-radius: 50%;
-              margin-right: 25px;
-              @include media.tablet{
-                display: none;
-              }
-            }
-            @each $planet, $color in colors.$planets {
-              .#{$planet}-bg {
-                background-color: $color;
-              }
-            }
-            @include media.laptop {
-              height: 100%;
-              align-items: center;
-              cursor: pointer;
-            }
-          }
-          @include media.laptop{
-            @each $planet, $color in colors.$planets {
-              .#{$planet}-top:hover {
-                  border-top: 3px solid $color;
-                  transition: all 0.1s ease-out;
-              }
-            }
-          }
-          .list-item-right{
-            font-size: 13px;
-            opacity: 0.3;
-            padding-right: 5px;
-            @include media.tablet{
+
+          .circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 25px;
+
+            @include media.tablet {
               display: none;
             }
           }
+
+          @each $planet,
+          $color in colors.$planets {
+            .#{$planet}-bg {
+              background-color: $color;
+            }
+          }
+
+          @include media.laptop {
+            height: 100%;
+            align-items: center;
+            cursor: pointer;
+          }
+        }
+
+        @include media.laptop {
+
+          @each $planet,
+          $color in colors.$planets {
+            .#{$planet}-top:hover {
+              border-top: 3px solid $color;
+              transition: all 0.1s ease-out;
+            }
+          }
+        }
+
+        .list-item-right {
+          font-size: 13px;
+          opacity: 0.3;
+          padding-right: 5px;
+
+          @include media.tablet {
+            display: none;
+          }
         }
       }
     }
   }
+}
