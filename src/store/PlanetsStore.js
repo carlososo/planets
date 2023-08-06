@@ -32,6 +32,7 @@ export const usePlanetsStore = defineStore("PlanetsStore", {
         this.selectedPlanet?.images[this.selectedPresentation === 'OVERVIEW' ? 'planet' : 'internal']
     },
     setSelectedDescription() {
+      console.log(this.planets)
       console.log(this.selectedPlanet)
       this.selectedDescription =
         this.selectedPlanet[this.selectedPresentation === 'OVERVIEW' ? 'overview'
