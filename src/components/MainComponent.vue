@@ -6,9 +6,8 @@ import TextContentComponent from './TextContentComponent.vue';
 
 import { usePlanetsStore } from '../store/PlanetsStore';
 
-
-import { useRouter, useRoute } from 'vue-router'
-import { watch, computed, ref } from 'vue';
+import { useRoute } from 'vue-router'
+import { watch } from 'vue';
 
 const route = useRoute()
 const store = usePlanetsStore();
@@ -19,7 +18,6 @@ const setPlanetData = (newVal) => {
   store.setSelectedDescription();
 }
 
-
 setPlanetData(route.params.name)
 
 watch(
@@ -27,8 +25,6 @@ watch(
     setPlanetData(newVal)
   }
 )
-
-console.log(route)
 
 </script>
 <template>
