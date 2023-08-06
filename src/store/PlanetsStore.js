@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import planets from "../assets/data.json";
 
-export const usePlanetsStore =  defineStore("PlanetsStore", {
+export const usePlanetsStore = defineStore("PlanetsStore", {
   state: () => ({
     planets,
     selectedPlanet: null,
@@ -29,15 +29,16 @@ export const usePlanetsStore =  defineStore("PlanetsStore", {
     },
     setSelectedImage() {
       this.selectedImage =
-      this.selectedPlanet?.images[this.selectedPresentation === 'OVERVIEW' ? 'planet' : 'internal']
+        this.selectedPlanet?.images[this.selectedPresentation === 'OVERVIEW' ? 'planet' : 'internal']
     },
-    setSelectedDescription(){
-      this.selectedDescription = 
-      this.selectedPlanet[this.selectedPresentation === 'OVERVIEW' ? 'overview' 
-      : this.selectedPresentation === 'INTERNAL' ? 'structure' : 'geology']
+    setSelectedDescription() {
+      console.log(this.selectedPlanet)
+      this.selectedDescription =
+        this.selectedPlanet[this.selectedPresentation === 'OVERVIEW' ? 'overview'
+          : this.selectedPresentation === 'INTERNAL' ? 'structure' : 'geology']
     }
   },
 
-    
-  
+
+
 })
