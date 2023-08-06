@@ -85,7 +85,6 @@ a {
     z-index: 1;
     padding: 20px;
     margin: 0 auto;
-    position: absolute;
     top: 52px;
     height: calc(100vh - 53px);
 
@@ -129,7 +128,7 @@ a {
       }
 
       .list-item {
-        height: 10rem;
+        height: 6rem;
         font-size: 24px;
         margin-left: 20px;
         display: flex;

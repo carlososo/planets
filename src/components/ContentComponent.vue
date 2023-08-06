@@ -19,7 +19,7 @@ const planetName = computed(() => {
 </script>
 <template>
   <section class="content-section">
-    <div class="image-container">
+    <div class="image-container" >
       <img :src="imageSource" alt="" :class="planetName">
       <div v-if="getSelectedPresentation === 'SURFACE'" class="surface-image-container">
         <img :src="selectedPlanet.images.geology" alt="" class="surface-image">
@@ -36,6 +36,7 @@ const planetName = computed(() => {
 .content-section {
   font-size: 13px;
   height: 100%;
+  display: flex;
 
   @include media.tablet {
     display: flex;
@@ -49,8 +50,7 @@ const planetName = computed(() => {
     align-items: center;
     justify-content: center;
     width: 60vw;
-    margin: 4rem auto;
-    height: 20rem;
+    margin: 0rem auto;
     position: relative;
 
     @include media.tablet {
@@ -64,8 +64,7 @@ const planetName = computed(() => {
       object-fit: contain;
     }
 
-    @each $planet,
-    $size in sizes.$planets {
+    @each $planet, $size in sizes.$planets {
       .#{$planet} {
         max-width: $size;
       }

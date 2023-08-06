@@ -105,6 +105,7 @@ onMounted(() => {
     gap: 15px;
     width: 100%;
     align-items: end;
+    justify-content: flex-end;
   }
 }
 </style>
