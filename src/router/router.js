@@ -6,7 +6,7 @@ export const router = createRouter({
   mode: 'history',
   history: createWebHistory(),
   routes: [
-    { path: '/', redirect: '/planet/Mercury' },
+    { path: '/', redirect: '/planet/Earth' },
     { path: '/planet/:name', component: MainComponent },
   ]
 });
